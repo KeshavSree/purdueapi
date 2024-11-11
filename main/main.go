@@ -1,9 +1,10 @@
-package purdue_api
+package main
 
 import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"purdueapi/purdue_api"
 	"time"
 )
 
@@ -20,7 +21,7 @@ func handleGetDining(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Call GetDining with parsed parameters
-	diningInfo, err := GetDining(location, date)
+	diningInfo, err := purdue_api.GetDining(location, date)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
